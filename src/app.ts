@@ -1,11 +1,16 @@
 import "dotenv/config";
 import express, { json } from "express";
 import "express-async-errors";
-import NoteModel from "./models/note";
+
 import rateLimit from "express-rate-limit";
+import morgan from "morgan";
+
 import { handleError } from "./utils/errors";
+import notesRoutes from "./routes/notes";
 
 const app = express();
+
+app.use(morgan("dev"));
 
 app.use(json());
 app.use(
@@ -15,14 +20,9 @@ app.use(
   })
 );
 
-app.get("/", async (req, res, next) => {
-  try {
-    const notes = await NoteModel.find().exec();
-    res.status(200).json(notes);
-  } catch (error) {
-    next(error);
-  }
-});
+app.use("/api/notes", notesRoutes);
+app.use(handleError);
+export default app;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 // app.use((error: unknown, req: Request, res: Response, next: NextFunction) => {
@@ -32,6 +32,3 @@ app.get("/", async (req, res, next) => {
 //   if (error instanceof Error) errorMessage = error.message;
 //   res.status(500).json({ errorMessage: errorMessage });
 // });
-
-app.use(handleError);
-export default app;

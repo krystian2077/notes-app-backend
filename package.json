@@ -17,6 +17,7 @@
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/jest": "^29.4.0",
+    "@types/morgan": "^1.9.4",
     "@types/node": "^18.11.18",
     "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
@@ -37,6 +38,7 @@
     "express-async-errors": "^3.1.1",
     "express-rate-limit": "^6.7.0",
     "mongoose": "^7.0.0",
+    "morgan": "^1.10.0",
     "mysql2": "^3.1.0",
     "uuid": "^9.0.0"
   }
