@@ -4,9 +4,9 @@ import "express-async-errors";
 
 import rateLimit from "express-rate-limit";
 import morgan from "morgan";
+import createHttpError, { isHttpError } from "http-errors";
 
 import notesRoutes from "./routes/notes";
-import createHttpError, { isHttpError } from "http-errors";
 
 const app = express();
 
@@ -38,5 +38,6 @@ app.use((error: unknown, req: Request, res: Response, next: NextFunction) => {
   }
   res.status(statusCode).json({ error: errorMessage });
 });
-// app.use(handleError);
 export default app;
+
+// @TODO adding updating and deleting notes
