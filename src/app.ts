@@ -5,8 +5,12 @@ import "express-async-errors";
 import rateLimit from "express-rate-limit";
 import morgan from "morgan";
 import createHttpError, { isHttpError } from "http-errors";
+import MongoStore from "connect-mongo";
+import env from "./utils/validateEnv";
 
 import notesRoutes from "./routes/notes";
+import userRoutes from "./routes/users";
+import session from "express-session";
 
 const app = express();
 
@@ -20,6 +24,22 @@ app.use(
   })
 );
 
+app.use(
+  session({
+    secret: env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 60 * 60 * 1000,
+    },
+    rolling: true,
+    store: MongoStore.create({
+      mongoUrl: env.MONGO_CONNECTION_LINK,
+    }),
+  })
+);
+
+app.use("/api/users", userRoutes);
 app.use("/api/notes", notesRoutes);
 
 app.use((req, res, next) => {
@@ -39,5 +59,3 @@ app.use((error: unknown, req: Request, res: Response, next: NextFunction) => {
   res.status(statusCode).json({ error: errorMessage });
 });
 export default app;
-
-// @TODO adding updating and deleting notes
