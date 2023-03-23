@@ -1,21 +1,13 @@
 import { RequestHandler } from "express";
 import createHttpError from "http-errors";
+import UserModel from "../models/user";
 import bcrypt from "bcrypt";
 
-import UserModel from "../models/user";
-
 export const getAuthenticatedUser: RequestHandler = async (req, res, next) => {
-  const authenticatedUserId = req.session.userId;
-
   try {
-    if (!authenticatedUserId) {
-      throw createHttpError(401, "User not authenticated");
-    }
-
-    const user = await UserModel.findById(authenticatedUserId)
+    const user = await UserModel.findById(req.session.userId)
       .select("+email")
       .exec();
-
     res.status(200).json(user);
   } catch (error) {
     next(error);
@@ -27,6 +19,7 @@ interface SignUpBody {
   email?: string;
   password?: string;
 }
+
 export const signUp: RequestHandler<
   unknown,
   unknown,
@@ -49,18 +42,16 @@ export const signUp: RequestHandler<
     if (existingUsername) {
       throw createHttpError(
         409,
-        "Username already taken.Please choose a diffrent one or log in instead"
+        "Username already taken. Please choose a different one or log in instead."
       );
     }
 
-    const existingEmail = await UserModel.findOne({
-      email: email,
-    }).exec();
+    const existingEmail = await UserModel.findOne({ email: email }).exec();
 
     if (existingEmail) {
       throw createHttpError(
         409,
-        "A user with this email already exists. Please log in instead"
+        "A user with this email address already exists. Please log in instead."
       );
     }
 
@@ -84,6 +75,7 @@ interface LoginBody {
   username?: string;
   password?: string;
 }
+
 export const login: RequestHandler<
   unknown,
   unknown,
