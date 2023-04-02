@@ -40,12 +40,8 @@ app.use(
   })
 );
 
-app.use("https://notes-app-server-38vv.onrender.com/api/users", userRoutes);
-app.use(
-  "https://notes-app-server-38vv.onrender.com/api/notes",
-  requiresAuth,
-  notesRoutes
-);
+app.use("/api/users", userRoutes);
+app.use("/api/notes", requiresAuth, notesRoutes);
 
 app.use((req, res, next) => {
   next(createHttpError(404, "Endpoint not found."));
