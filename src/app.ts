@@ -12,6 +12,7 @@ import notesRoutes from "./routes/notes";
 import userRoutes from "./routes/users";
 import session from "express-session";
 import { requiresAuth } from "../middleware/auth";
+import cors from "cors";
 
 const app = express();
 
@@ -39,6 +40,16 @@ app.use(
     }),
   })
 );
+
+app.use(cors());
+app.get("/", (req, res) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://notes-app-backend-dp7u.onrender.com"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.send("Api is runing");
+});
 
 app.use("/api/users", userRoutes);
 app.use("/api/notes", requiresAuth, notesRoutes);
