@@ -47,6 +47,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.send("Api is runing");
 });
