@@ -41,12 +41,12 @@ app.use(
   })
 );
 
-app.use(cors({}));
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.get("/", (req, res) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "*"
-  );
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.send("Api is runing");
 });
