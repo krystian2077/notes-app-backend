@@ -16,9 +16,9 @@ import cors from "cors";
 
 const app = express();
 app.use(
-    cors({
-        origin: "*",
-    })
+  cors({
+    origin: "https://notes-app-frontend-m9bi.onrender.com",
+  })
 );
 
 app.use(morgan("dev"));
@@ -45,7 +45,6 @@ app.use(
     }),
   })
 );
-
 
 app.get("/", (req, res) => {
   res.setHeader("Access-Control-Allow-Credentials", "true");
