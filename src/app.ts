@@ -41,11 +41,11 @@ app.use(
   })
 );
 
-app.use(cors());
+app.use(cors({}));
 app.get("/", (req, res) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://notes-app-backend-dp7u.onrender.com"
+    "*"
   );
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.send("Api is runing");
