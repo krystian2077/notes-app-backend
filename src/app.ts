@@ -12,14 +12,8 @@ import notesRoutes from "./routes/notes";
 import userRoutes from "./routes/users";
 import session from "express-session";
 import { requiresAuth } from "../middleware/auth";
-import cors from "cors";
 
 const app = express();
-app.use(
-  cors({
-    origin: "https://notes-app-frontend-m9bi.onrender.com",
-  })
-);
 
 app.use(morgan("dev"));
 
@@ -46,14 +40,8 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  res.set("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.send("Api is runing");
-});
-
 app.use("/api/users", userRoutes);
-app.use("/api/notes", notesRoutes);
+app.use("/api/notes", requiresAuth, notesRoutes);
 
 app.use((req, res, next) => {
   next(createHttpError(404, "Endpoint not found."));
