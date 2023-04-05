@@ -53,7 +53,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", userRoutes);
-app.use("/api/notes", requiresAuth, notesRoutes);
+app.use("/api/notes", notesRoutes);
 
 app.use((req, res, next) => {
   next(createHttpError(404, "Endpoint not found."));
