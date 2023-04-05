@@ -33,6 +33,11 @@ The application is fully responsive so we can use it on a phone or laptop.
 ## Video How App Work
 
 
+
+https://user-images.githubusercontent.com/94081707/230200234-e0d291d3-a46f-4e09-89d4-59cb42b52273.mp4
+
+
+
 ## Built With
 
 <p align="center">
@@ -67,7 +72,7 @@ Install the latest version of npm in your runtime.
    ```
 4. Run npm script
    ```sh
-   npm start nodemon src/server.ts;
+   npm start nodemon src/server.ts
    ```
 
 
