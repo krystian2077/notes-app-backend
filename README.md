@@ -27,6 +27,8 @@ Using My Notes App, we can easily add and quickly edit/delete our notes.
 
 We set up our own account so that our notes are always available to us.
 
+The application has validation and authorization of user registration/login.
+
 The application is fully responsive so we can use it on a phone or laptop.
 
 
