@@ -4,28 +4,19 @@
  <img src="images/start.png" alt="Start" style="margin-bottom: 100px" >
 </div>
 
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#how-app-work">Video How App Work</a></li>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
 
+# Table of Contents
+
+- [About The Project](#about-the-project)
+- [Video How App Work
+  ](#video-how-app-work)
+- [Built With
+  ](#built-with
+  )
+- [Getting Started
+  ](#getting-started)
+- [Roadmap](#roadmap)
+- [Contact](#contact)
 
 
 ## About The Project
@@ -38,23 +29,17 @@ We set up our own account so that our notes are always available to us.
 
 The application is fully responsive so we can use it on a phone or laptop.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Video How App Work
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Video How App Work
 
 
-### Built With
+## Built With
 
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=typescript,nodejs,express,mongodb,react,bootstrap" />
   </a>
 </p>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ## Getting Started
@@ -85,7 +70,6 @@ Install the latest version of npm in your runtime.
    npm nodemon start src/server.ts;
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Roadmap
 
@@ -93,8 +77,6 @@ Install the latest version of npm in your runtime.
 - [x] Add authentication
 - [ ] Add dark/light mode
 - [ ] Add search field for notes
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- CONTACT -->
@@ -105,4 +87,3 @@ Email: krystian.potaczek07@gmail.com
 My phone number: 788-986-074
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
