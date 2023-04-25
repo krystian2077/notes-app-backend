@@ -12,8 +12,12 @@ import notesRoutes from "./routes/notes";
 import userRoutes from "./routes/users";
 import session from "express-session";
 import { requiresAuth } from "../middleware/auth";
+import cors from "cors";
 
 const app = express();
+app.use(cors({
+    origin: '*'
+}));
 
 app.use(morgan("dev"));
 
